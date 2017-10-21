@@ -16,7 +16,9 @@ copy the zookeeper-standalone.jar to your directory and run the following comman
 java -jar zookeeper-standalone.jar
 ```
 
-This will start the zookeeper server at port 6379 and start another web server at port 7379.
+This will start the zookeeper server at port 2181 and start another web server at port 4181.
+
+The default clientPort for the zookeeper server is 2181 and the default dataDir for hte zookeeper server is /tmp.
 
 To check whether the zookeeper server is alive, call the following url:
 

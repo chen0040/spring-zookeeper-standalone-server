@@ -8,6 +8,7 @@ import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -32,13 +33,19 @@ public class Loader implements ApplicationListener<ApplicationReadyEvent> {
 
    private ZooKeeperServerMain zooKeeperServer;
 
+   @Value("${zookeeper.dataDir}")
+   private String dataDir;
+
+   @Value("${zookeeper.clientPort}")
+   private String clientPort;
+
    @Override public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
       logger.info("profile: {}", versionService.getProfileString());
       logger.info("starting zookeeper ...");
 
       Properties startupProperties = new Properties();
-      startupProperties.setProperty("dataDir", "/tmp");
-      startupProperties.setProperty("clientPort", "2181");
+      startupProperties.setProperty("dataDir", dataDir);
+      startupProperties.setProperty("clientPort", clientPort);
 
       QuorumPeerConfig quorumConfiguration = new QuorumPeerConfig();
       try {
