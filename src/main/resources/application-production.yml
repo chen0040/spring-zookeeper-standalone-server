@@ -1,0 +1,6 @@
+server:
+  port: 4181
+
+spring:
+  application:
+    name: spring-zookeeper-standalone-server

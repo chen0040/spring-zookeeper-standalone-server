@@ -23,6 +23,7 @@
         <lombok.version>1.16.6</lombok.version>
         <spring-boot-maven-plugin.version>1.4.1.RELEASE</spring-boot-maven-plugin.version>
         <findbugs.version>3.0.2</findbugs.version>
+        <guava.version>19.0</guava.version>
     </properties>
 
     <profiles>
@@ -190,12 +191,31 @@
         </dependency>
 
 
+        <!-- logging -->
+        <dependency>
+            <groupId>com.papertrailapp</groupId>
+            <artifactId>logback-syslog4j</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>2.7.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
-            <type>pom</type>
         </dependency>
 
 
